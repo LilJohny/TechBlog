@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
 from TechBlog import settings
+import account.urls
+
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('', include(account.urls)),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL)
